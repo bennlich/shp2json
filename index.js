@@ -59,7 +59,7 @@ module.exports = function (inStream) {
                     files[0],
                 ]);
                 ps.stdout.pipe(outStream, { end : false });
-                ps.stderr.pipe(outStream, { end : false });
+                // ps.stderr.pipe(outStream, { end : false });
                 
                 var pending = 2;
                 function onend () { if (--pending === 0) outStream.end() }
