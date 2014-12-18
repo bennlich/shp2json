@@ -61,10 +61,10 @@ module.exports = function (inStream) {
                 ps.stdout.pipe(outStream, { end : false });
                 // ps.stderr.pipe(outStream, { end : false });
                 
-                var pending = 2;
+                var pending = 1;
                 function onend () { if (--pending === 0) outStream.end() }
                 ps.stdout.on('end', onend);
-                ps.stderr.on('end', onend);
+                // ps.stderr.on('end', onend);
             }
         })
         .catch(function (err) {
